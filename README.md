@@ -2,11 +2,13 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1cdc179a-4d2a-45d2-be98-e819a6695a58/deploy-status)](https://app.netlify.com/sites/quarantineaid-stg/deploys)
 
-This is a NGO application powered by VueJS and twilio that provides the main functions for people who are in need during Quarantine, such as user can request for a help, using maps they can locate the place, Volunteer can search for specific location to assist who are in need of help like - Medicines, Masks, Food.
+A digital platform that connects those in need to those who can help during COVID 19
 
 ![QuarantineAid Client](demo/demo.gif)
 
-click here to see the - [DEMO](https://www.quarantineaid.in)
+<img src="https://dev-to-uploads.s3.amazonaws.com/i/ifkj4ggl426kypcxgukp.png" width="600px"/>
+
+## click here to see the - [DEMO](https://www.quarantineaid.in)
 
 ## Features
 - Modern Design
