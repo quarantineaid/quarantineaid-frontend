@@ -1,3 +1,4 @@
+import format from "date-fns/format";
 <template>
     <div class="d-flex flex-column h-100 req-body">
         <TopNav @showBottomSheet="showBottomSheet">
@@ -9,29 +10,35 @@
             <vue-scroll class="col p-0 flex-shrink-1 position-relative">
                 <div class="p-3">
                     <h1 class="heading my-4">details</h1>
-                    <div class="img-cover">
-                        <img src="@/assets/dummy/med.jpg" alt="">
+                    <div class="img-cover" v-if="!hasImages">
+                        <img :src="getDetailImage" alt="">
                     </div>
-                    <h2 class="heading my-4">Lorem ipsum dolor sit amet</h2>
+                    <carousel v-if="hasImages" :perPage="1"  paginationPosition="bottom-overlay">
+                        <slide v-for="(imagePath,index) in listOfCards[getCurrentCardIndex].images"
+                               :data-index="index"
+                               :key="index">
+                            <div class="img-cover">
+                                <img :src="getImagePath(imagePath)" alt="">
+                            </div>
+                        </slide>
+                    </carousel>
+                    <h2 class="heading my-4">{{listOfCards[getCurrentCardIndex].title}}</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        {{listOfCards[getCurrentCardIndex].description}}
                     </p>
                     <div class="d-flex flex-row">
                         <div class="image-wrap flex-shrink-0">
-                            <img src="@/assets/dummy/person.png" alt="">
+                            <img :src="getCurrUserProfile" alt="">
                         </div>
                         <div class="bio-text d-flex flex-grow-1 flex-column">
-                            <h4 class="name">Malvika Singh</h4>
+                            <h4 class="name">{{listOfCards[getCurrentCardIndex].requester.name}}</h4>
                             <div class="d-flex flex-row">
-                                <span>food</span>
+                                <span>{{listOfCards[getCurrentCardIndex].type}}</span>
                                 <span class="sep">|</span>
                                 <span>category</span>
                             </div>
                         </div>
-                        <div class="date d-flex flex-shrink-0">19 oct</div>
+                        <div class="date d-flex flex-shrink-0">{{getFormatedData}}</div>
                     </div>
                     <component :is="currentDetailComponent"></component>
                 </div>
@@ -42,21 +49,52 @@
 
 <script>
     import TopNav from "../components/TopNav";
-    import {mapState} from 'vuex';
+    import {mapGetters, mapState} from 'vuex';
     import DetailsCompo from "../components/details";
+    import {pathOr} from "ramda";
+    import format from 'date-fns/format';
+    import {Carousel, Slide} from "vue-carousel";
 
     export default {
         name: "MobCardDetail",
         components: {
-            TopNav,...DetailsCompo
+            TopNav,...DetailsCompo, Carousel, Slide
         },
         methods: {
             showBottomSheet() {
                 debugger;
-            }
+            },
+            getImagePath(path){
+                return path || require("@/assets/dummy/med.jpg")
+            },
         },
         computed:{
             ...mapState('global', ['currentDetailComponent']),
+            ...mapGetters('cards',['listOfCards','getCurrentCardIndex']),
+            getCurrUserProfile:{
+                get(){
+                    return pathOr(null,['requester','picture'],this.listOfCards[this.getCurrentCardIndex]) || require("@/assets/default-user.png")
+                }
+            },
+            getFormatedData:{
+                get(){
+                    return format(
+                        new Date(pathOr(new Date(),['_created_at'],this.listOfCards[this.getCurrentCardIndex])),
+                        'dd MMM'
+                    )
+                }
+            },
+            hasImages:{
+                get(){
+                    return this.listOfCards.length&&this.listOfCards[this.getCurrentCardIndex].images.length
+                }
+            },
+            getDetailImage: {
+                get() {
+                    return  require("@/assets/dummy/med.jpg")
+                }
+            },
+
         }
     }
 </script>

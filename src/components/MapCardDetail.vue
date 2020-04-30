@@ -82,7 +82,6 @@ import format from "date-fns/format";
                                 <img :src="getImagePath(imagePath)" alt="">
                                 </div>
                             </slide>
-                            ...
                         </carousel>
                         <h2 class="title my-4">{{listOfCards[getCurrentCardIndex].title}}</h2>
                         <p>

@@ -1,2 +1,2 @@
 
-export const BASE_URL = "https://solancer.ngrok.io/";
+export const BASE_URL = "https://api.quarantineaid.in/";
