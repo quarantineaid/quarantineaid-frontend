@@ -157,7 +157,7 @@ import format from "date-fns/format";
             LMap, LTileLayer, LMarker, LPopup, LControlZoom, CaseCard, ...DetailsCompo, Multiselect,MugenScroll, Carousel, Slide
         },
         methods: {
-            ...mapMutations('global', ['setCurrentTabIndex', 'setCurrentDetailComponent', 'setCurrentBottomSheet', 'setShowModal','setCurrentUrl','setCurrentLayout']),
+            ...mapMutations('global', ['setCurrentTabIndex', 'setCurrentDetailComponent', 'setCurrentBottomSheet', 'setShowModal','setCurrentUrl','setCurrentLayout','reset']),
             ...mapActions('cards', ['getCards']),
             ...mapMutations('cards', ['updateCurrentCardIndex','updateLoaded','updateCards']),
             onMarkerClick(index){
@@ -328,8 +328,10 @@ import format from "date-fns/format";
                     }
 
                     if(!state.cards.cardData&&this.$route.name ==='Home'){
+                        this.reset()
+                       /* this.setCurrentLayout('helping');
                         this.setCurrentLayout('helping');
-                        this.setCurrentUrl('')
+                        this.setCurrentUrl('')*/
                     }
                 }
 
