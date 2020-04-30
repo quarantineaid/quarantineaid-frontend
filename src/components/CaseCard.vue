@@ -81,4 +81,7 @@
             }
         }
     }
+    .case-card{
+        cursor: pointer;
+    }
 </style>

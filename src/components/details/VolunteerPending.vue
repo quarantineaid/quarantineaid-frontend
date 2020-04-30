@@ -1,7 +1,7 @@
 <template>
     <div class="my-5">
         <b-alert show variant="success" >
-            <h4 class="m-2 text-center">request sent on 19 oct</h4>
+            <h4 class="m-2 text-center">request sent</h4>
         </b-alert>
     </div>
 </template>

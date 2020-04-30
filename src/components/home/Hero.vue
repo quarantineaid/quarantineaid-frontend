@@ -3,28 +3,30 @@
         <div class="hero-banner row">
             <div class="col-lg-12 col-xl-6 align-self-center">
                 <h1 class="hero-banner-heading">
-                    putting <a href="#">you</a> in touch with us.
-                    <a href="#">connecting</a> people in need to those who can help.
+                    connecting <a href="#" @mouseover="setAnim(true)" @mouseleave="setAnim(false)">those</a> in need to
+                    <a href="#" @mouseover="setAnim(true)" @mouseleave="setAnim(false)">those</a> who can help during COVID 19.
                 </h1>
+
+                <h2 class="hero-banner-heading-sm">you can make a difference</h2>
 
 <!--                <div class="card-wrap d-none d-md-flex d-flex justify-content-around justify-content-md-between flex-wrap">-->
                 <div class="card-wrap d-md-flex d-flex justify-content-around flex-wrap">
                     <div class="card">
-                        <p>confirmed</p>
+                        <p>situations</p>
                         <h4>3,374</h4>
                     </div>
                     <div class="card">
-                        <p>recovered</p>
+                        <p>in progress</p>
                         <h4>3,374</h4>
                     </div>
                     <div class="card">
-                        <p>deaths</p>
+                        <p>helped</p>
                         <h4>3,374</h4>
                     </div>
                 </div>
             </div>
             <div class="col-xl-6  col-md-12 d-none d-xl-block align-self-center">
-                <img src="@/assets/hero-image.png" class="img-fluid" alt="">
+                <Animation :start="startAnim" />
             </div>
         </div>
     </div>
@@ -32,9 +34,16 @@
 
 <script>
     import { TimelineMax,Back } from "gsap";
+    import Animation from '../Animation'
 
     export default {
         name: "Hero",
+        components: {Animation},
+        data(){
+            return {
+                startAnim:false,
+            }
+        },
         mounted() {
             let toolTimeline = new TimelineMax();
             let duration = .9;
@@ -51,6 +60,12 @@
             title1.staggerFromTo(".hero-banner-heading", 0.5,
                 {ease: Back.easeOut.config(1.7), opacity: 0, bottom: -80},
                 {ease: Back.easeOut.config(1.7), opacity: 1, bottom: 0}, 0.05);
+        },
+        methods:{
+            setAnim(val){
+                debugger;
+                this.startAnim = val;
+            }
         }
     }
 </script>
@@ -83,6 +98,11 @@
                 &:hover{
                     text-decoration: none;
                 }
+            }
+            &-sm {
+                font-size: 2.25rem;
+                color: #2b2a35;
+                opacity: 0.5;
             }
         }
         .card-wrap{

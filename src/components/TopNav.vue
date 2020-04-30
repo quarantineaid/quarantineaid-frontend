@@ -36,6 +36,11 @@
             ...mapMutations('global',['setCurrentBottomSheet','setShowModal']),
             ...mapMutations('account',['updateUserObject']),
             onVolunteerClick(){
+                if(isAndroid||isIOS){
+                    this.setCurrentBottomSheet('ProfileSignin');
+                    this.setShowModal(true)
+                    return;
+                }
                 this.setCurrentBottomSheet('AuthButtonHelping');
                 this.setShowModal(true)
             },
@@ -47,7 +52,11 @@
                     }
                     this.setCurrentBottomSheet('ReqForm');
                 }else {
-                    this.setCurrentBottomSheet('AuthButtonNeedHelp');
+                    if(isAndroid||isIOS){
+                        this.setCurrentBottomSheet('ProfileSignin');
+                    }else{
+                        this.setCurrentBottomSheet('AuthButtonNeedHelp');
+                    }
                 }
                 this.setShowModal(true)
             },

@@ -146,9 +146,41 @@ $vs-border-radius:20px;
       overflow: hidden;
       border-radius: 20px;
       img{
-        height: auto;
+        height: 100%;
         width: 100%;
         object-fit: cover;
+        position: relative;
+        min-height: 100px;
+        min-width: 100%;
+        &:before {
+          padding: 30px;
+          content: " ";
+          display: block;
+
+          position: absolute;
+          top: -10px;
+          left: 0;
+          height: calc(100% + 10px);
+          width: 100%;
+          background-color: rgb(230, 230, 230);
+          border: 2px dotted rgb(200, 200, 200);
+          //border-radius: 5px;
+        }
+
+        &:after {
+          padding: 30px;
+          content: "" " Broken Image";
+          display: block;
+          font-size: 16px;
+          font-style: normal;
+          color: rgb(100, 100, 100);
+
+          position: absolute;
+          top: 5px;
+          left: 0;
+          width: 100%;
+          text-align: center;
+        }
       }
     }
     .title{

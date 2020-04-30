@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import {mapActions} from "vuex";
+    import {mapActions, mapGetters, mapMutations} from "vuex";
 
     export default {
         props:{
@@ -16,11 +16,20 @@
         },
         name: "VolunteerButton",
         methods:{
+            ...mapMutations('global',['setCurrentBottomSheet','setShowModal']),
             ...mapActions('cards',['wouldVolunteer']),
             onBtnClick(){
-                // console.log(this.detail._id)
-                this.wouldVolunteer(this.detail._id);
+                if(this.getUserInfo){
+                    // console.log(this.detail._id)
+                    this.wouldVolunteer(this.detail._id);
+                }else{
+                    this.setCurrentBottomSheet('ProfileSignin');
+                    this.setShowModal(true)
+                }
             }
+        },
+        computed:{
+            ...mapGetters('account',['getUserInfo'])
         }
     }
 </script>

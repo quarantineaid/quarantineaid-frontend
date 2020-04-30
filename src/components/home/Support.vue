@@ -1,7 +1,7 @@
 <template>
     <section class="support" id="support">
         <div class="container d-flex flex-column">
-            <h3 class="heading">Who are we?</h3>
+            <h3 class="heading my-5">Who are we?</h3>
             <div class=" d-flex justify-content-center align-content-between mb-5 flex-column flex-xl-row">
                 <BioCard
                     name="Atul Khola"
@@ -22,10 +22,10 @@
                         :image-path="require('@/assets/Karthik.png')"
                 ></BioCard>
             </div>
-            <p class="text-center d-flex align-self-center support-text my-4">QuarantAid.me was built by Srinivas Gowda, Karthik Srinivas & Atul Khola in
+            <p class="text-center d-flex align-self-center support-text my-4">QuarantineAid.in was built by Srinivas Gowda, Karthik Srinivas & Atul Khola in
                 Bangalore. You can help us with this product.</p>
             <div class="d-flex justify-content-center">
-                <button class="btn support-btn">support us</button>
+                <a class="btn support-btn" href="mailto:srinivas@solancer.com?subject=Support Enquiry">support us</a>
             </div>
         </div>
     </section>

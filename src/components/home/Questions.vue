@@ -9,7 +9,7 @@
                         <img src="@/assets/questions/1.png" alt="">
                     </div>
                     <h4>What is QuarantAid?</h4>
-                    <p>Quarantaid.me connects those in need with volunteers who are able to help them. This is particularly
+                    <p>QuarantineAid.in connects those in need with volunteers who are able to help them. This is particularly
                         important during this period of quarantine and self-isolation due to COVID-19.</p>
                 </div>
 
@@ -21,7 +21,7 @@
                         <img src="@/assets/questions/3.png" alt="">
                     </div>
                     <h4>How does it work?</h4>
-                    <p>Quarantaid.me connects those in need with volunteers who are able to help them. This is particularly
+                    <p>QuarantineAid.in connects those in need with volunteers who are able to help them. This is particularly
                         important during this period of quarantine and self-isolation due to COVID-19.</p>
                 </div>
 
@@ -33,7 +33,7 @@
                         <img src="@/assets/questions/4.png" alt="">
                     </div>
                     <h4>Is it free?</h4>
-                    <p>Quarantaid.me connects those in need with volunteers who are able to help them. This is particularly
+                    <p>QuarantineAid.in connects those in need with volunteers who are able to help them. This is particularly
                         important during this period of quarantine and self-isolation due to COVID-19.</p>
                 </div>
 
@@ -48,7 +48,7 @@
                         <img src="@/assets/questions/2.png" alt="">
                     </div>
                     <h4>Who are the volunteers?</h4>
-                    <p>Quarantaid.me connects those in need with volunteers who are able to help them. This is particularly
+                    <p>QuarantineAid.in connects those in need with volunteers who are able to help them. This is particularly
                         important during this period of quarantine and self-isolation due to COVID-19.</p>
                 </div>
 
@@ -60,7 +60,7 @@
                         <img src="@/assets/questions/5.png" alt="">
                     </div>
                     <h4>Is it safe?</h4>
-                    <p>Quarantaid.me connects those in need with volunteers who are able to help them. This is particularly
+                    <p>QuarantineAid.in connects those in need with volunteers who are able to help them. This is particularly
                         important during this period of quarantine and self-isolation due to COVID-19.</p>
                 </div>
 
@@ -72,7 +72,7 @@
                         <img src="@/assets/questions/6.png" alt="">
                     </div>
                     <h4>Who should use this?</h4>
-                    <p>Quarantaid.me connects those in need with volunteers who are able to help them. This is particularly
+                    <p>QuarantineAid.in connects those in need with volunteers who are able to help them. This is particularly
                         important during this period of quarantine and self-isolation due to COVID-19.</p>
                 </div>
 

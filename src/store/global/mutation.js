@@ -19,6 +19,7 @@ export default {
                     state.currentUrl = 'situations/helping/ongoing'
                 } else {
                     state.currentDetailComponent = "MyRequestProgress";
+                    state.currentUrl = "situations/getting-help/pending"
                 }
                 break;
 
@@ -28,12 +29,16 @@ export default {
                 break;
             case "helped":
                 state.currentDetailComponent = "VolunteerHelped";
+                state.currentUrl = "situations/helping/helped";
                 break;
             case "my_requests":
                 state.currentDetailComponent = "MyRequests";
+                state.currentUrl = "situations/getting-help/ongoing"
                 break;
             case "resolved":
                 state.currentDetailComponent = "MyRequestResolved";
+                state.currentUrl = "situations/getting-help/resolved";
+                debugger;
                 break;
         }
     },

@@ -262,7 +262,7 @@
         },
         data() {
             return {
-                upload: null,
+                upload: [],
                 cities: [],
                 formBody: {
                     city: null,
@@ -297,7 +297,7 @@
             debounceSearch: debounce(async function (query) {
                 const response = await ajaxFindArea(query);
                 if (response) {
-                    console.log(response)
+                   // console.log(response)
                     this.cities = response;
 
                 }
@@ -305,7 +305,7 @@
             async onFormSubmit(evnt) {
                 evnt.preventDefault();
                 let formBody = Object.assign({}, this.formBody);
-                console.log(formBody)
+               // console.log(formBody)
                 debugger;
                 const {type, title, description, phone} = formBody;
                 const [lng, lat] = formBody.city.data.geometry.coordinates;
@@ -326,7 +326,9 @@
 
                 const formData = new FormData();
                 formData.append('data', JSON.stringify(payload));
-                this.upload.forEach(img => formData.append("upload", img));
+                if(this.upload.length){
+                    this.upload.forEach(img => formData.append("upload", img));
+                }
 
                 // formData.append('data', JSON.stringify(payload));
                 // formData.append("upload", this.upload);

@@ -39,7 +39,7 @@ import format from "date-fns/format";
         <!--        <div :class="!isHelping?'':'col d-flex flex-column flex-grow-1 flex-shrink-0'" class=" px-0 cases ">-->
         <div class=" px-0 cases col-lg d-lg-flex flex-lg-column flex-lg-grow-1 flex-md-shrink-0">
             <div class="d-none d-lg-flex cases-wrap flex-shrink-0 justify-content-between align-self-center">
-                <h1 class="heading">occurrences {{listOfCards.length}}</h1>
+                <h1 class="heading">{{$route.name==='Home'?'occurrences':'Situations'}} {{listOfCards.length}}</h1>
                 <div>
                     <button class="btn-current" @click="onFilterClick"><img src="@/assets/control.png" alt="">
                     </button>
@@ -71,9 +71,19 @@ import format from "date-fns/format";
                                 src="@/assets/control.png"
                                 alt=""></button>
 
-                        <div class="img-cover">
+                        <div class="img-cover" v-if="!hasImages">
                             <img :src="getDetailImage" alt="">
                         </div>
+                        <carousel v-if="hasImages" perPage="1"  paginationPosition="bottom-overlay">
+                            <slide v-for="(imagePath,index) in listOfCards[getCurrentCardIndex].images"
+                                    :data-index="index"
+                            :key="index">
+                                <div class="img-cover">
+                                <img :src="getImagePath(imagePath)" alt="">
+                                </div>
+                            </slide>
+                            ...
+                        </carousel>
                         <h2 class="title my-4">{{listOfCards[getCurrentCardIndex].title}}</h2>
                         <p>
                             {{listOfCards[getCurrentCardIndex].description}}
@@ -139,14 +149,15 @@ import format from "date-fns/format";
     import format from 'date-fns/format';
     import InfiniteLoading from 'vue-infinite-loading';
     import MugenScroll from 'vue-mugen-scroll'
+    import { Carousel, Slide } from 'vue-carousel';
 
     export default {
         name: "MapCardDetail",
         components: {
-            LMap, LTileLayer, LMarker, LPopup, LControlZoom, CaseCard, ...DetailsCompo, Multiselect,MugenScroll
+            LMap, LTileLayer, LMarker, LPopup, LControlZoom, CaseCard, ...DetailsCompo, Multiselect,MugenScroll, Carousel, Slide
         },
         methods: {
-            ...mapMutations('global', ['setCurrentTabIndex', 'setCurrentDetailComponent', 'setCurrentBottomSheet', 'setShowModal','setCurrentUrl']),
+            ...mapMutations('global', ['setCurrentTabIndex', 'setCurrentDetailComponent', 'setCurrentBottomSheet', 'setShowModal','setCurrentUrl','setCurrentLayout']),
             ...mapActions('cards', ['getCards']),
             ...mapMutations('cards', ['updateCurrentCardIndex','updateLoaded','updateCards']),
             onMarkerClick(index){
@@ -206,7 +217,7 @@ import format from "date-fns/format";
             debounceSearch: debounce(async function (query) {
                 const response = await ajaxFindArea(query);
                 if (response) {
-                    console.log(response)
+                    //console.log(response)
                     this.cities = response;
 
                 }
@@ -245,6 +256,9 @@ import format from "date-fns/format";
                         this.center = latLng(latitude,longitude);
                     })
                 }*/
+            },
+            getImagePath(path){
+                return path || require("@/assets/dummy/med.jpg")
             },
             infiniteHandler(){
                 debugger;
@@ -314,6 +328,7 @@ import format from "date-fns/format";
                     }
 
                     if(!state.cards.cardData&&this.$route.name ==='Home'){
+                        this.setCurrentLayout('helping');
                         this.setCurrentUrl('')
                     }
                 }
@@ -347,7 +362,12 @@ import format from "date-fns/format";
             ...mapGetters('cards', ['listOfCards', 'getCurrentCardIndex','getPageData']),
             getDetailImage: {
                 get() {
-                    return this.listOfCards.length&&this.listOfCards[this.getCurrentCardIndex].images.length ? this.listOfCards[this.getCurrentCardIndex].images[0] : require("@/assets/dummy/med.jpg")
+                    return  require("@/assets/dummy/med.jpg")
+                }
+            },
+            hasImages:{
+                get(){
+                    return this.listOfCards.length&&this.listOfCards[this.getCurrentCardIndex].images.length
                 }
             },
             icon() {

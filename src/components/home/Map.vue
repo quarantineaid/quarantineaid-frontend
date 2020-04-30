@@ -1,7 +1,7 @@
 <template>
     <section class="map" id="map">
         <div class="container d-flex flex-column  flex-fill min-vh-100 ">
-            <h1 class="map-heading flex-shrink-0">People who need help</h1>
+            <h1 class="map-heading flex-shrink-0">Occurences</h1>
             <div class="row d-flex flex-fill flex-grow-1">
                 <MapCardDetail></MapCardDetail>
             </div>

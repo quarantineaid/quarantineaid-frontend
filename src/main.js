@@ -15,6 +15,7 @@ import PerfectScrollbar from "vue2-perfect-scrollbar";
 import "vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css";
 import * as Facebook from 'fb-sdk-wrapper';
 // import {initializeApp} from "firebase";
+import Lottie from 'vue-lottie'
 
 import { gsap } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'
@@ -49,6 +50,7 @@ Vue.use(VueScrollTo);
 /*import Vuebar from 'vuebar';
 Vue.use(Vuebar);*/
 // Vue.use(PerfectScrollbar);
+Vue.component('lottie', Lottie)
 
 Vue.use(vuescroll,{
     ops: {
