@@ -329,16 +329,15 @@ import format from "date-fns/format";
 
                     if(!state.cards.cardData&&this.$route.name ==='Home'){
                         this.reset()
-                       /* this.setCurrentLayout('helping');
-                        this.setCurrentLayout('helping');
-                        this.setCurrentUrl('')*/
                     }
                 }
 
                 if(mutation.type==="global/setCurrentDetailComponent"){
                     this.searchTerm = null;
                     this.updateCards(null);
-                    this.getCards();
+                    this.getCards({
+                        clearCards:true
+                    });
                 }
             });
         },

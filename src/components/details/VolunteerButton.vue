@@ -21,7 +21,11 @@
             onBtnClick(){
                 if(this.getUserInfo){
                     // console.log(this.detail._id)
-                    this.wouldVolunteer(this.detail._id);
+                    if(this.$route.name!=='Home'){
+                        this.wouldVolunteer(this.detail._id);
+                    }else{
+                        this.$router.push({name:'Volunteer'})
+                    }
                 }else{
                     this.setCurrentBottomSheet('ProfileSignin');
                     this.setShowModal(true)
