@@ -74,7 +74,7 @@ import format from "date-fns/format";
                         <div class="img-cover" v-if="!hasImages">
                             <img :src="getDetailImage" alt="">
                         </div>
-                        <carousel v-if="hasImages" perPage="1"  paginationPosition="bottom-overlay">
+                        <carousel v-if="hasImages" :perPage="1"  paginationPosition="bottom-overlay">
                             <slide v-for="(imagePath,index) in listOfCards[getCurrentCardIndex].images"
                                     :data-index="index"
                             :key="index">

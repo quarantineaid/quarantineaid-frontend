@@ -53,8 +53,8 @@ const wouldVolunteer = async ({dispatch, commit, state}, id) => {
         await commit("global/setMessageText", `Thanks for showing interest, your information has been shared with ${res.requester.name || 'requester'}`, {root: true});
         await commit("global/setCurrentBottomSheet", "Message", {root: true});
         await commit("global/setShowModal", true, {root: true});
+        debugger;
     }
-    debugger;
     // debugger;
 };
 

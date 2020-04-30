@@ -58,7 +58,10 @@ export default {
     reset(state,str){
         state.currentLayout = 'helping';
         state.currentTabIndex = 0;
-        state.currentUrl = 'situations/helping/all';
+        state.currentUrl = '';
         state.currentDetailComponent ="VolunteerButton";
+    },
+    setMessageText(state,str){
+            state.messageText = str;
     }
 }
