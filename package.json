@@ -18,7 +18,7 @@
     "fb-sdk-wrapper": "^1.0.5",
     "firebase": "^7.14.0",
     "fuss": "^1.2.5",
-    "gsap": "^3.2.6",
+    "gsap": "^3.6.0",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.19",
     "mobile-device-detect": "^0.3.3",
