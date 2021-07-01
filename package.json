@@ -20,7 +20,7 @@
     "fuss": "^1.2.5",
     "gsap": "^3.6.0",
     "leaflet": "^1.6.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "mobile-device-detect": "^0.3.3",
     "ramda": "^0.27.0",
     "register-service-worker": "^1.7.1",
