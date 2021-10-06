@@ -10,7 +10,7 @@
   "dependencies": {
     "@bachdgvn/vue-otp-input": "^1.0.6",
     "@popperjs/core": "^2.2.3",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.10.1",
     "core-js": "^3.6.4",
